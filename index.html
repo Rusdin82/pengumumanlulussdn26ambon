@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pengumuman Kelulusan SD Negeri 26 Ambon</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f6f8;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 50px 20px;
+    }
+    h1, h2 {
+      text-align: center;
+    }
+    .login-box {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      max-width: 400px;
+      width: 100%;
+    }
+    input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      margin: 15px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    button {
+      width: 100%;
+      padding: 10px;
+      background: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #0056b3;
+    }
+    .result {
+      margin-top: 20px;
+      padding: 20px;
+      background: #e0ffe0;
+      border: 1px solid #8bc34a;
+      border-radius: 5px;
+    }
+    .error {
+      color: red;
+      margin-top: 10px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <h1>SD Negeri 26 Ambon</h1>
+  <h2>Pengumuman Kelulusan<br>Tahun Pelajaran 2024/2025</h2>
+
+  <div class="login-box">
+    <label for="nisn">Masukkan NISN Anda:</label>
+    <input type="text" id="nisn" placeholder="Contoh: 3125917391">
+    <button onclick="cekKelulusan()">Cek Kelulusan</button>
+    <div id="output" class="result" style="display: none;"></div>
+    <div id="error" class="error"></div>
+  </div>
+
+  <script>
+    const dataSiswa = {
+      "3125917391": "Afiqa Salsa Dewi",
+      "3138012109": "Afriani Tan",
+      "3147788192": "Avnan",
+      "3133244991": "Berliana Sarapova Azzara Tanjung",
+      "3136757800": "Husein Fahreza Wattiheluw",
+      "3125904475": "Jihan Savira",
+      "3138415833": "Julatu Sangadji",
+      "3139902281": "La Ode Rayan Muliawan",
+      "0138832479": "Muhammad Zacky Purnomo",
+      "3135720159": "Nadila Rahma Tuanaya",
+      "3139049375": "Nur Bugis",
+      "3131763889": "Nur Majidha Toisuta",
+      "3136908070": "Nurrofika Naya",
+      "3126122305": "Putra Aditya Arfa",
+      "3131681590": "Radjab Sayuti",
+      "3135338737": "Rasmawaty Onoly",
+      "3128602681": "Ratu Arti Diva Naemah Ohorella",
+      "0139495150": "Rivka Khairiah Kiahaly",
+      "3134546528": "Rumana Olivia Uar",
+      "0134985778": "Santika Putri",
+      "0138178995": "Sassuaxena Ramadhani Kaufua",
+      "3130129280": "Shaqinah Thaha",
+      "3139429354": "Siti Dira Vazid Saleh",
+      "3125134539": "Siti Sarah Difinubun",
+      "3131035832": "Sri Wulandari Waliulu",
+      "0122981961": "Sulfin Wadlau",
+      "3138278117": "Syami Shafita Elly",
+      "3138684359": "Thoriq Abdul Aziz Warang",
+      "0127654451": "Wa Yana",
+      "3136721798": "Zahira Ollong",
+      "0139570253": "Zhein Barka Waliulu",
+      "3134022519": "Zill Qayyim Ahmad Syauqi",
+      "0132308641": "Zulfikar Ramadhansyah Sahupala",
+      "3132401564": "Azriel Erlangga Putra Tung",
+      "0121890197": "Fakhri Afif Arifin",
+      "3129290729": "Fathir Syakir Zauzan Mahu",
+      "3137479331": "Saifullah Sinaga",
+      "3125344521": "Sirin Najiyyah Amin",
+      "3137479331": "Zubair"
+    };
+
+    function cekKelulusan() {
+      const nisn = document.getElementById('nisn').value.trim();
+      const output = document.getElementById('output');
+      const error = document.getElementById('error');
+
+      if (dataSiswa[nisn]) {
+        output.style.display = 'block';
+        output.innerHTML = `<strong>Nama:</strong> ${dataSiswa[nisn]}<br><strong>Status:</strong> <span style="color:green;">LULUS</span>`;
+        error.innerText = '';
+      } else {
+        output.style.display = 'none';
+        error.innerText = 'NISN tidak ditemukan. Silakan periksa kembali.';
+      }
+    }
+  </script>
+</body>
+</html>
